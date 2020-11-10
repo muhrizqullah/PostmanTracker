@@ -22,7 +22,7 @@ function WelcomeScreen(props) {
           <FlatButton text="Cek Resi" onPress={() => alert("move to page 2")} />
         </View>
       </ImageBackground>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
     </View>
   );
 }
