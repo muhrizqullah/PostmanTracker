@@ -16,7 +16,7 @@ export default function ReviewDetails({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "pink",
+    backgroundColor: "#F6D8AE",
     alignItems: "center",
     justifyContent: "center",
   },
