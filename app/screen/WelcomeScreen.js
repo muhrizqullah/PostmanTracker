@@ -12,11 +12,21 @@ export default function WelcomeScreen({ navigation }) {
 
   const [ekpedisi, setEkspedisi] = useState('')
   const [resi, setResi] = useState('')
+  
+  const convertTextToLowerCase = () => {
+    let lowerCaseText = ekpedisi.toLowerCase();
+    setEkspedisi(lowerCaseText);
+  };
 
   const pressHandler = () => {
     navigation.navigate('Details', {
       jenis : ekpedisi,
       noresi : resi});
+  }
+
+  const combined = () => {
+    convertTextToLowerCase();
+    pressHandler();
   }
   
   return (
@@ -31,12 +41,13 @@ export default function WelcomeScreen({ navigation }) {
         <TextInput style={styles.input}
           keyboardType = 'numeric'
           placeholder = '123456789'
+          autoCapitalize='jjnone'
           onChangeText={(value) => setResi(value)}
         />
         <Text>Ekspedisi: {ekpedisi} Resi: {resi}</Text>
         <FlatButton
         text = 'Cek Resi'
-        onPress={pressHandler} />
+        onPress={() => {combined();}} />
     </SafeAreaView>
   );
 }
