@@ -1,21 +1,23 @@
-import React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import React from "react";
+import { StyleSheet, View, Text, Button } from "react-native";
+import { roundToNearestPixel } from "react-native/Libraries/Utilities/PixelRatio";
 
-export default function ReviewDetails({ navigation }) {
-
-
+export default function ReviewDetails({ route, navigation }) {
+     const jenis = navigation.getParam('jenis');
+     const noresi = navigation.getParam('noresi');
   return (
     <View style={styles.container}>
-      <Text>ReviewDetails Screen</Text>
+     <Text>Ekspedisi: {jenis}</Text>
+     <Text>Nomor Resi: {noresi}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-     container: {
-       flex: 1,
-       backgroundColor: 'pink',
-       alignItems: 'center',
-       justifyContent: 'center',
-     },
+  container: {
+    flex: 1,
+    backgroundColor: "pink",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
