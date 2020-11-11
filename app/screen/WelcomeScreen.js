@@ -1,44 +1,57 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, {useState} from "react";
 import {
-  TouchableOpacity,
-  ImageBackground,
   StyleSheet,
-  View,
   Text,
+  TextInput,
+  SafeAreaView,
 } from "react-native";
 
 import FlatButton from "../shared/button";
 
+
 //assets https://coolors.co/fae6db-9d9fab-565459-322f31-feb990-ff9a88-ff8d83-fc8481 //
+
 function WelcomeScreen(props) {
+
+  const [ekpedisi, setEkspedisi] = useState('')
+  const [resi, setResi] = useState('')
+  
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        style={styles.imagebg}
-        source={require("../assets/bg3.png")}
-      >
-        <View style={styles.button}>
-          <FlatButton text="Cek Resi" onPress={() => alert("move to page 2")} />
-        </View>
-      </ImageBackground>
-      <StatusBar style="dark" />
-    </View>
+    <SafeAreaView style={styles.container}>
+  
+        <Text>Pilih Ekspedisi</Text>
+        <TextInput style={styles.input}
+          placeholder = 'JNE, JNT, TIKI, WAHANA'
+          onChangeText={(value) => setEkspedisi(value)}
+        />
+        <Text>Masukan Resi</Text>
+        <TextInput style={styles.input}
+          keyboardType = 'numeric'
+          placeholder = '123456789'
+          onChangeText={(value) => setResi(value)}
+        />
+        <Text>Ekspedisi: {ekpedisi} Resi: {resi}</Text>
+        <FlatButton
+        text = 'Cek Resi'
+        onPress={() => alert("duarr")} />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
+    backgroundColor: 'pink',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  imagebg: {
-    flex: 1,
-  },
-  button: {
-       flex: 1,
-       alignItems: 'center',
-       justifyContent: 'center',
+
+  input: {
+    borderWidth: 1,
+    borderColor : '#777',
+    padding: 8,
+    margin: 10,
+    width: 200,
   }
 });
 export default WelcomeScreen;

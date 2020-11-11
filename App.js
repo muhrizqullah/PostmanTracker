@@ -5,7 +5,7 @@ import { AppLoading } from "expo";
 import WelcomeScreen from "./app/screen/WelcomeScreen";
 
 const getFonts = () => Font.loadAsync({
-    "nunito-regular": require('/Users/muhrizqullah/Files/Program/React/cek-resi/app/assets/fonts/Nunito-Regular.ttf'),
+    "nunito-regular": require("../PostmanTracker/app/assets/fonts/Nunito-Regular.ttf"),
   });
 
 export default function App() {
@@ -13,7 +13,8 @@ export default function App() {
 
   if (fontsLoaded) {
     return (
-    <WelcomeScreen />
+    <WelcomeScreen>
+    </WelcomeScreen>
     );
   } else {
     return (
