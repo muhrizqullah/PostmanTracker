@@ -7,14 +7,16 @@ import {
 } from "react-native";
 
 import FlatButton from "../shared/button";
-
-
 //assets https://coolors.co/fae6db-9d9fab-565459-322f31-feb990-ff9a88-ff8d83-fc8481 //
 
-function WelcomeScreen(props) {
+export default function WelcomeScreen({ navigation }) {
 
   const [ekpedisi, setEkspedisi] = useState('')
   const [resi, setResi] = useState('')
+
+  const pressHandler = () => {
+    navigation.push('Details');
+  }
   
   return (
     <SafeAreaView style={styles.container}>
@@ -33,7 +35,7 @@ function WelcomeScreen(props) {
         <Text>Ekspedisi: {ekpedisi} Resi: {resi}</Text>
         <FlatButton
         text = 'Cek Resi'
-        onPress={() => alert("duarr")} />
+        onPress={pressHandler} />
     </SafeAreaView>
   );
 }
@@ -54,4 +56,3 @@ const styles = StyleSheet.create({
     width: 200,
   }
 });
-export default WelcomeScreen;
