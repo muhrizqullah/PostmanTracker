@@ -9,7 +9,7 @@ export default function ReviewDetails({ route, navigation }) {
   var jenis = navigation.getParam("jenis");
   var noresi = navigation.getParam("noresi");
   const API_KEY =
-    "9d8b324276e79ffcfefa0d1750e188ef6c6d20d720474c8111395291429f69f4";
+    "a1b90d4d06ec2bb7345ed2d1de220ff18751b77339f51442c855b4909ddc174b";
   const BASE_URL = "https://api.binderbyte.com/v1/track";
 
   const getData = async () => {
