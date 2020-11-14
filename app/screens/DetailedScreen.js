@@ -5,7 +5,7 @@ import { StyleSheet, SafeAreaView, Text, FlatList, View } from "react-native";
 // 8826412040917777
 
 export default function ReviewDetails({ route, navigation }) {
-  const [response, setResponse] = React.useState({});
+  const [response, setResponse] = React.useState();
   var jenis = navigation.getParam("jenis");
   var noresi = navigation.getParam("noresi");
   const API_KEY =
@@ -44,27 +44,26 @@ export default function ReviewDetails({ route, navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Nomor Resi: {response.data.summary.awb}</Text>
-      <Text>Ekspedisi: {response.data.summary.courier}</Text>
-      <Text>Status: {response.data.summary.status}</Text>
-      <Text>Harga: Rp.{response.data.summary.amount}</Text>
-      <Text>Berat: {response.data.summary.weight}</Text>
-      <Text>Asal: {response.data.detail.origin}</Text>
-      <Text>Tujuan: {response.data.detail.destination}</Text>
-      <Text>Pengirim: {response.data.detail.shipper}</Text>
-      <Text>Penerima: {response.data.detail.receiver}</Text>
+      <Text>Nomor Resi: {response?response.data.summary.awb:""}</Text>
+      <Text>Ekspedisi: {response?response.data.summary.courier:""}</Text>
+      <Text>Status: {response?response.data.summary.status:""}</Text>
+      <Text>Harga: Rp.{response?response.data.summary.amount:""}</Text>
+      <Text>Berat: {response?response.data.summary.weight:""}</Text>
+      <Text>Asal: {response?response.data.detail.origin:""}</Text>
+      <Text>Tujuan: {response?response.data.detail.destination:""}</Text>
+      <Text>Pengirim: {response?response.data.detail.shipper:""}</Text>
+      <Text>Penerima: {response?response.data.detail.receiver:"" }</Text>
       <FlatList
         style={styles.listStyle}
         keyExtractor={(item) => item.date}
-        data={response.data.history}
+        data={response?response.data.history:""}
         renderItem={({ item }) => (
           <View>
             <Text>
               Tanggal {item.date} Keterangan: {item.desc}
             </Text>
           </View>
-        )}
-      />
+        )}/>
     </SafeAreaView>
   );
 }
