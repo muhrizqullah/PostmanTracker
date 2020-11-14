@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import { StyleSheet, SafeAreaView, Text, FlatList } from "react-native";
+import { StyleSheet, SafeAreaView, Text, FlatList, View } from "react-native";
 
-// 0105362045532411
+// 8826412040917777
 
 export default function ReviewDetails({ route, navigation }) {
   const [response, setResponse] = React.useState({});
@@ -12,7 +12,7 @@ export default function ReviewDetails({ route, navigation }) {
     "a1b90d4d06ec2bb7345ed2d1de220ff18751b77339f51442c855b4909ddc174b";
   const BASE_URL = "https://api.binderbyte.com/v1/track";
 
-  const getData = async () => {
+  const getResponseData = async () => {
     try {
       let response = await fetch(
         BASE_URL +
@@ -34,13 +34,12 @@ export default function ReviewDetails({ route, navigation }) {
     }
   };
 
-  
   React.useEffect(() => {
-    getData();
+    getResponseData();
   });
 
   const hii = () => {
-    return JSON.stringify(response);
+    setDataResponse(JSON.stringify(response));
   };
 
   return (
@@ -55,12 +54,14 @@ export default function ReviewDetails({ route, navigation }) {
       <Text>Pengirim: {response.data.detail.shipper}</Text>
       <Text>Penerima: {response.data.detail.receiver}</Text>
       <FlatList
-      style={styles.listStyle}
+        style={styles.listStyle}
         keyExtractor={(item) => item.date}
         data={response.data.history}
         renderItem={({ item }) => (
           <View>
-            <Text>Tanggal {item.date} Keterangan: {item.desc}</Text>
+            <Text>
+              Tanggal {item.date} Keterangan: {item.desc}
+            </Text>
           </View>
         )}
       />
@@ -71,11 +72,11 @@ export default function ReviewDetails({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "pink",
+    backgroundColor: "#F6D8AE",
     alignItems: "center",
     justifyContent: "center",
   },
   listStyle: {
-    marginTop: 30
-}
+    marginTop: 30,
+  },
 });
