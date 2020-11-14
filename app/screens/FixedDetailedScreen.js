@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 
+// data resi, 8000107611408 ,, 8826412040917777
 export default function ReviewDetails({ route, navigation }) {
   const [response, setResponse] = useState({});
   var jenis = navigation.getParam('jenis');
