@@ -4,8 +4,10 @@ Project kali ini ditujukan untuk memenuhi final project Lab Based Education Labo
 ## Behind The Code
 Akbar dan Ubay
 
-## Technology That We Use
-Expo React Native and RESTful API
+## Tools
+Visual Studio Code
+Expo React Native
+RESTful API
 
 ## API That We Used
 CekResi by BinderByte
